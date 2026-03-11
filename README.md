@@ -32,10 +32,11 @@
 - Windows 10/11 (需要管理员权限)
 - Python 3.10+
 - 依赖库：`psutil` (用于进程管理)
+- 已安装PyInstaller
 
 ### 安装依赖
 ```bash
-pip install psutil
+pip install psutil pyinstaller
 ```
 
 ### 说明
@@ -44,14 +45,16 @@ pip install psutil
 smartdns run
 ```
 Windows默认配置文件在smartdns目录，如果是官方的msi安装包，则配置文件目录在：
-```bash
+```bash 
 C:\ProgramData\SmartDNS
 ```
 
 ### 方法一：使用 PyInstaller 编译（推荐）
-程序已配置为支持单文件编译及 UAC 管理员权限请求：
-```bash
-pyinstaller --noconsole --onefile --uac-admin --icon="favicon.ico" --add-data "favicon.ico;." smartdns_manager.py
+1. 下载zip压缩包
+
+2. 文件编译：
+```
+bash pyinstaller --noconsole --onefile --uac-admin --icon="favicon.ico" --add-data "favicon.ico;." smartdns_manager.py
 ```
 
 ### 方法二：下载预编译文件
