@@ -40,14 +40,15 @@ pip install psutil pyinstaller
 ```
 
 ### 说明
-程序默认启动命令,暂时没有指定配置文件路径：
+1. 程序默认启动命令,暂时没有指定配置文件路径：
 ```bash
 smartdns run
 ```
-Windows默认配置文件在smartdns目录，如果是官方的msi安装包，则配置文件目录在：
+2. Windows默认配置文件在smartdns目录，如果是官方的msi安装包，则配置文件目录在：
 ```bash 
 C:\ProgramData\SmartDNS
 ```
+3. 有需要替换程序图标的，将favicon.ico替换成自己的图标，文件名相同即可
 
 ### 方法一：使用 PyInstaller 编译（推荐）
 1. 下载zip压缩包
