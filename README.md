@@ -1,13 +1,29 @@
 # SmartDNS Manager
 
-一个基于 Python 和 Tkinter 构建的 Windows 智能 DNS 管理工具，旨在简化 SmartDNS 的日常使用流程，自动处理进程启动与系统 DNS 切换。
+一个基于 Python 和 Tkinter 构建的，在Windows下使用的 SmartDNS 管理工具。旨在简化 SmartDNS 的日常使用流程，自动处理进程启动与系统 DNS 切换，方便管理。
 
 
-> 程序可能不能完全符合需求，如果有需要更多功能，请使用官方的[仪表盘插件](https://pymumu.github.io/smartdns/config/dashboard/)。
+> 程序可能不能完全符合需求，正在进行完善。或者使用官方的[仪表盘插件](https://pymumu.github.io/smartdns/config/dashboard/)。
 
-## 运行界面
+> 有更专业的需求，推荐使用[almightyYantao](https://github.com/almightyYantao/smartdns-manager)的SmartDNS Manager项目
 
-![程序界面](https://cdn.jsdelivr.net/gh/lsersc/SmartDNS_Manager@refs/heads/main/src/1.png)
+
+### 必看说明
+1. 程序通过静默启动的方式隐藏SmartDNS的运行窗口,暂时没有指定配置文件路径  
+   默认启动命令：``` smartdns run ```
+   
+2. 程序会备份原有非SmartDNS的DNS服务器，备份配置在：
+```bash 
+%AppData%\smartdns_manager
+```
+3. 程序默认使用官方的[msi安装包](https://github.com/mokeyish/smartdns-rs/releases/download/v0.13.0/smartdns-x86_64-pc-windows-msvc-v0.13.0.msi)，配置文件目录在：
+```bash 
+C:\ProgramData\SmartDNS
+```
+4. 有需要替换程序图标的，将favicon.ico替换成自己的图标，文件名相同即可
+
+5. 需要本地配置好SmartDNS  
+即：打开cmd执行`smartdns --help`能正常执行
 
 ## 核心功能
 
@@ -39,19 +55,9 @@
 pip install psutil pyinstaller
 ```
 
-### 说明
-1. 程序默认启动命令,暂时没有指定配置文件路径：
-```bash
-smartdns run
-```
-2. Windows默认配置文件在smartdns目录，如果是官方的msi安装包，则配置文件目录在：
-```bash 
-C:\ProgramData\SmartDNS
-```
-3. 有需要替换程序图标的，将favicon.ico替换成自己的图标，文件名相同即可
 
 ### 方法一：使用 PyInstaller 编译（推荐）
-1. 下载zip压缩包
+1. 下载源码压缩包
 
 2. 文件编译：
 ```
@@ -61,9 +67,24 @@ bash pyinstaller --noconsole --onefile --uac-admin --icon="favicon.ico" --add-da
 ### 方法二：下载预编译文件
 > 前往[release](https://github.com/lsersc/SmartDNS_Manager/releases)页面下载
 
+### 运行界面
+
+![程序界面](https://cdn.jsdelivr.net/gh/lsersc/SmartDNS_Manager@refs/heads/main/src/1.png)
+
+
 ## 注意事项
 - 本工具主要配合 `smartdns.exe` 使用，请确保安装和配置好了SmartDNS。
-- 程序运行需要**管理员权限**，以便执行 `netsh` 命令修改系统网络设置。
 
+
+---
+## 更新记录
+
+### [v1.0](https://github.com/lsersc/SmartDNS_Manager/releases/tag/v1.0)
+- 简单的SmartDNS管理
+- 还算看得过去的界面
+- 不知道有没有bug
+- 需要本地配置好SmartDNS
+  即：打开cmd执行smartdns --help能正常执行
+- 程序运行需要**管理员权限**，以便执行 `netsh` 命令修改系统网络设置。  
 ---
 *注：本项目作为 SmartDNS 的辅助管理前端，剩余部分可根据实际需求进一步完善。*
